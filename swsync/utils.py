@@ -24,7 +24,6 @@ curdir = os.path.abspath(os.path.dirname(__file__))
 INIFILE = os.path.abspath(os.path.join(curdir, '..', 'etc', "config.ini"))
 SAMPLE_INIFILE = os.path.abspath(os.path.join(curdir, '..',
                                               'etc', "config.ini-sample"))
-REVERSE = False
 
 
 class ConfigurationError(Exception):
@@ -56,7 +55,7 @@ def parse_ini(inicfg=None):
     elif inicfg is None and os.path.exists(INIFILE):
         fp = open(INIFILE)
     else:
-        raise ConfigurationError("Cannot find inicfg")
+        raise ConfigurationError("Cannot found inicfg")
 
     config = ConfigParser.RawConfigParser()
     config.readfp(fp)
